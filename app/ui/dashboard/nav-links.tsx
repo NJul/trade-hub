@@ -30,9 +30,9 @@ export default function NavLinks() {
             href={link.href}
             /*  className="text-wh flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-neutral-900 p-3 text-sm font-medium text-white hover:bg-neutral-600 hover:text-white md:flex-none md:justify-start md:p-2 md:px-3" */
             className={clsx(
-              'text-wh flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-neutral-900 p-3 text-sm font-medium text-white hover:bg-neutral-600 hover:text-white md:flex-none md:justify-start md:p-2 md:px-3',
+              'text-wh flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-neutral-900 p-3 text-sm font-medium text-white hover:bg-zinc-600 hover:text-white md:flex-none md:justify-start md:p-2 md:px-3',
               {
-                'bg-neutral-600': pathname === link.href,
+                'bg-zinc-600': pathname === link.href,
               },
             )}
           >
