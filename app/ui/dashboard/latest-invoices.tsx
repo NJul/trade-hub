@@ -19,7 +19,7 @@ export default async function LatestInvoices({
       <div className="flex grow flex-col justify-between rounded-xl bg-neutral-700 p-4">
         {/* Attention! Uncomment this section when you reach this stage in the course. */}
 
-        {/* <div className="bg-neutral-00 px-6">
+        <div className="bg-neutral-00 px-6">
           {latestInvoices.map((invoice, i) => {
             return (
               <div
@@ -56,7 +56,7 @@ export default async function LatestInvoices({
               </div>
             );
           })}
-        </div> */}
+        </div>
 
         <div className="flex items-center pb-2 pt-6">
           <ArrowPathIcon className="h-5 w-5 text-white" />
