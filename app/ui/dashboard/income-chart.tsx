@@ -2,10 +2,11 @@ import { generateYAxis } from '@/app/lib/utils';
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { poppins } from '@/app/ui/fonts';
 import { Income } from '@/app/lib/definitions';
+import { fetchIncome } from '@/app/lib/data';
 
-export default async function IncomeChart({ income }: { income: Income[] }) {
+export default async function IncomeChart() {
+  const income = await fetchIncome();
   const chartHeight = 350;
-  // Attention! Uncomment this section when you reach this stage in the course.
 
   const { yAxisLabels, topLabel } = generateYAxis(income);
 
@@ -20,7 +21,6 @@ export default async function IncomeChart({ income }: { income: Income[] }) {
       >
         Current Income
       </h2>
-      {/* Attention! Uncomment this section when you reach this stage in the course. */}
 
       <div className="rounded-xl bg-neutral-700 p-4">
         <div className="mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-neutral-700 p-4 sm:grid-cols-13 md:gap-4">

@@ -2,15 +2,14 @@ import { Card } from '@/app/ui/dashboard/cards';
 import IncomeChart from '@/app/ui/dashboard/income-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { poppins } from '@/app/ui/fonts';
+import { fetchCardData } from '@/app/lib/data';
+import { Suspense } from 'react';
 import {
-  fetchIncome,
-  fetchLatestInvoices,
-  fetchCardData,
-} from '@/app/lib/data';
+  IncomeChartSkeleton,
+  LatestInvoicesSkeleton,
+} from '@/app/ui/skeletons';
 
 export default async function Page() {
-  const income = await fetchIncome();
-  const latestInvoices = await fetchLatestInvoices();
   const {
     totalFulfilledInvoices,
     totalAwaitingInvoices,
@@ -36,15 +35,13 @@ export default async function Page() {
         <Card title="Total Sellers" value={numberOfSellers} type="sellers" />
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        <IncomeChart income={income} />
-        <LatestInvoices latestInvoices={latestInvoices} />
+        <Suspense fallback={<IncomeChartSkeleton />}>
+          <IncomeChart />
+        </Suspense>
+        <Suspense fallback={<LatestInvoicesSkeleton />}>
+          <LatestInvoices />
+        </Suspense>
       </div>
     </main>
   );
 }
-
-/*
-export default function Page() {
-  return <p className="text-white">Dashboard Page</p>;
-}
-*/
